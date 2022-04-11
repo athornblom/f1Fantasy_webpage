@@ -5,11 +5,7 @@ import { Typography } from "@mui/material";
 import Loading from "../src/components/Loading";
 
 const Home: NextPage = () => {
-  return (
-    <Container maxWidth="lg">
-      <Loading />
-    </Container>
-  );
+  return <Loading />;
 };
 
 export default Home;
