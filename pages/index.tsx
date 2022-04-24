@@ -2,23 +2,12 @@ import type { NextPage } from 'next';
 import Loading from '../src/components/Loading';
 import { google } from 'googleapis';
 import { getAuthToken } from '../src/utils/getAuthToken';
+import { sheetQuery } from '../src/utils/sheetQuery';
 
 export async function getServerSideProps() {
-  const auth = await getAuthToken();
-
-  const sheets = google.sheets({ version: 'v4', auth });
-
-  // const { id } = query;
-  const range = `Statistik!D2:E16`;
-
-  const response = await sheets.spreadsheets.values.get({
-    spreadsheetId: process.env.SHEET_ID,
-    range,
-  });
-
-  const data = response.data.values;
-
+  const data = await sheetQuery('Statistik', 'D2:F16');
   return {
+    notFound: data.length == 0 ? true : false,
     props: {
       data,
     },
@@ -28,7 +17,6 @@ export async function getServerSideProps() {
 interface Props {
   data: any;
 }
-
 const Home: NextPage<Props> = ({ data }) => {
   return (
     <>
@@ -39,9 +27,6 @@ const Home: NextPage<Props> = ({ data }) => {
       </ul>
     </>
   );
-};
-type AppProps = {
-  message: string;
 };
 
 export default Home;
