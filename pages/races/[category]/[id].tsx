@@ -8,7 +8,6 @@ import { google } from 'googleapis';
 import { getAuthToken } from '../../../src/utils/getAuthToken';
 import { sheetQuery } from '../../../src/utils/sheetQuery';
 import Podium from '../../../src/components/standings/Podium';
-import StandingsTable from '../../../src/components/standings/StandingsTable';
 
 export async function getServerSideProps(context: any) {
   const data = await sheetQuery(context.query.id, 'B2:N17');
@@ -31,7 +30,9 @@ const Race: NextPage<Props> = ({ data }) => {
     <Container sx={{ paddingTop: '50px' }}>
       <Box sx={{ my: 4 }}>
         <Podium
-          title={`${id!.charAt(0).toUpperCase() + id!.slice(1)} Result`}
+          title={`${
+            (id as string).charAt(0).toUpperCase() + id!.slice(1)
+          } Result`}
           rows={data}
         />
         {/* <StandingsTable rows={data} /> */}
