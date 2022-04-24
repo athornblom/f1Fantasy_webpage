@@ -1,4 +1,4 @@
-/** @jsxImportSource @emotion/react */
+// @ts-nocheck
 import * as React from 'react';
 import { css, jsx } from '@emotion/react';
 import { Grid } from '@mui/material';
@@ -7,7 +7,15 @@ import ReactCanvasConfetti from 'react-canvas-confetti';
 import { useRef, useCallback, useEffect } from 'react';
 import { Typography } from '@mui/material';
 import { NextPage } from 'next';
-import styles from './podium.module.css';
+
+const canvasStyles = {
+  position: 'absolute',
+  pointerEvents: 'none',
+  width: '100%',
+  height: '100%',
+  top: 0,
+  left: 0,
+};
 
 interface Props {
   title: string;
@@ -64,6 +72,7 @@ const Podium: NextPage<Props> = ({ title, rows }) => {
       startVelocity: 45,
     });
   }, [makeShot]);
+
   return (
     <Grid
       container
@@ -81,33 +90,29 @@ const Podium: NextPage<Props> = ({ title, rows }) => {
           {title}
         </Typography>
       </Grid>
-      <ReactCanvasConfetti
-        refConfetti={getInstance}
-        className={styles.canvasStyles}
-      />
+      <ReactCanvasConfetti refConfetti={getInstance} style={canvasStyles} />
       <Grid item xs sx={{ display: { xs: 'none', md: 'block' } }}>
         <PodiumCard
           winner={false}
-          team={rows[1].team}
-          owner={rows[1].owner}
-          pic={rows[1].image}
+          team={rows[2][2]}
+          owner={rows[2][3]}
+          pic={rows[2][13]}
         />
       </Grid>
       <Grid item xs={12} md={5} lg={6} onMouseEnter={fire}>
         <PodiumCard
           winner={true}
-          team={rows[0].team}
-          owner={rows[0].owner}
-          pic={rows[0].image}
+          team={rows[1][2]}
+          owner={rows[1][3]}
+          pic={rows[1][13]}
         />
       </Grid>
-
-      <Grid item sm sx={{ display: { xs: 'none', md: 'block' } }}>
+      <Grid item xs sx={{ display: { xs: 'none', md: 'block' } }}>
         <PodiumCard
           winner={false}
-          team={rows[2].team}
-          owner={rows[2].owner}
-          pic={rows[2].image}
+          team={rows[3][2]}
+          owner={rows[3][3]}
+          pic={rows[3][13]}
         />
       </Grid>
     </Grid>
