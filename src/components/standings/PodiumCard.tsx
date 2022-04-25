@@ -11,18 +11,20 @@ interface Props {
   winner: boolean;
   team: string;
   owner: string;
-  pic: string;
+  image: string;
 }
 
-const PodiumCard: NextPage<Props> = ({ winner, team, owner, pic }) => {
+const PodiumCard: NextPage<Props> = ({ winner, team, owner, image }) => {
+  console.log(image);
   return (
     <Card>
       <div>
         <Image
           layout="responsive"
-          src={pic ? pic : '/F12022TemplateCar.png'}
+          src={image ? image : '/F12022TemplateCar.png'}
           width="772.5"
           height="215.5"
+          alt="Picture of winners car"
         />
         {/* <CardMedia
           component="img"
