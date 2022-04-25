@@ -21,7 +21,7 @@ const PodiumCard: NextPage<Props> = ({ winner, team, owner, image }) => {
         {console.log(image)}
         <Image
           layout="responsive"
-          src={image.length > 0 ? image : '/f12022TemplateCar.png'}
+          src={image ? image : '/f12022TemplateCar.png'}
           width="800"
           height="220"
           alt="Picture of winners car"
