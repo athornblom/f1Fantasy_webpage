@@ -4,5 +4,4 @@ module.exports = {
   images: {
     domains: ['cdn.discordapp.com'],
   },
-  exportTrailingSlash: true,
 };
