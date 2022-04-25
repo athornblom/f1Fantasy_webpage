@@ -1,6 +1,6 @@
 # F1 Fantasy Leauge
 
-This is a project for entertainment purposes only, dont take any content seriously. I created it since we were tiered of keeping track of our f1 fantasy leauge in google sheets.
+This is a project for entertainment purposes only, dont take any content seriously, peaople are allowed to upload their own cars. I created it since we were tired of keeping track of our f1 fantasy leauge in google sheets.
 
 
 ## How to use
