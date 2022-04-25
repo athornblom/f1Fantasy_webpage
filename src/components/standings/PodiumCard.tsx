@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import { maxWidth } from '@mui/system';
 import Image from 'next/image';
 import { NextPage } from 'next';
+import tempCar from '../../../public/f12022TemplateCar.png';
 
 interface Props {
   winner: boolean;
@@ -18,10 +19,9 @@ const PodiumCard: NextPage<Props> = ({ winner, team, owner, image }) => {
   return (
     <Card>
       <div>
-        {console.log(image)}
         <Image
           layout="responsive"
-          src={image ? image : '/f12022TemplateCar.png'}
+          src={image ? image : tempCar}
           width="800"
           height="220"
           alt="Picture of winners car"
