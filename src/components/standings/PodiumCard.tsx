@@ -6,7 +6,6 @@ import Typography from '@mui/material/Typography';
 import { maxWidth } from '@mui/system';
 import Image from 'next/image';
 import { NextPage } from 'next';
-import tempCar from '../../../public/f12022TemplateCar.png';
 
 interface Props {
   winner: boolean;
@@ -19,13 +18,23 @@ const PodiumCard: NextPage<Props> = ({ winner, team, owner, image }) => {
   return (
     <Card>
       <div>
-        <Image
-          layout="responsive"
-          src={image ? image : tempCar}
-          width="800"
-          height="220"
-          alt="Picture of winners car"
-        />
+        {image ? (
+          <Image
+            layout="responsive"
+            src={image ? image : tempCar}
+            width="800"
+            height="220"
+            alt="Picture of winners car"
+          />
+        ) : (
+          <Image
+            layout="responsive"
+            src="/f12022TemplateCar"
+            width="800"
+            height="220"
+            alt="Picture of winners car"
+          />
+        )}
         {/* <CardMedia
           component="img"
           image={pic ? pic : 'F12022TemplateCar.png'}
