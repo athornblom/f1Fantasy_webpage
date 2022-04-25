@@ -4,4 +4,13 @@ module.exports = {
   images: {
     domains: ['cdn.discordapp.com'],
   },
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/2022',
+        permanent: true,
+      },
+    ];
+  },
 };
