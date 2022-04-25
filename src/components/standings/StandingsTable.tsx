@@ -26,7 +26,7 @@ function filterTableRows(rows: any) {
 }
 
 function descendingComparator(a: any, b: any, orderBy: any) {
-  console.log(a);
+
   if (parseInt(b[orderBy]) < parseInt(a[orderBy])) {
     return -1;
   }

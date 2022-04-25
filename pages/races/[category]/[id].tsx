@@ -19,9 +19,9 @@ const Race: NextPage = () => {
   const { data, error } = useSWR(`/api/getRaces/${id}`, fetcher);
   if (error) return <h1>Ooops, somethings broke</h1>;
   if (!data) return <Loading></Loading>;
-  console.log(data);
+  
   return (
-    <Container maxWidth="lg" sx={{ paddingTop: '50px' }}>
+    <Container maxWidth="xl" sx={{ paddingTop: '50px' }}>
       <Box sx={{ my: 4 }}>
         <Podium
           title={`${

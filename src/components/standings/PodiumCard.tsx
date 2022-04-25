@@ -15,15 +15,14 @@ interface Props {
 }
 
 const PodiumCard: NextPage<Props> = ({ winner, team, owner, image }) => {
-  console.log(image);
   return (
     <Card>
       <div>
         <Image
           layout="responsive"
           src={image ? image : '/F12022TemplateCar.png'}
-          width="772.5"
-          height="215.5"
+          width="800"
+          height="220"
           alt="Picture of winners car"
         />
         {/* <CardMedia

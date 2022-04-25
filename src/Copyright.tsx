@@ -4,7 +4,12 @@ import MuiLink from '@mui/material/Link';
 
 export default function Copyright() {
   return (
-    <Typography variant="body2" color="text.secondary" align="center">
+    <Typography
+      sx={{ marginBottom: '20px' }}
+      variant="body2"
+      color="text.secondary"
+      align="center"
+    >
       {'Copyright © '}
       <MuiLink
         color="inherit"
