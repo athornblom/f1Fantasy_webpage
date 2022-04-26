@@ -19,7 +19,7 @@ const Stanadings: NextPage = () => {
   if (error) return <div>Failed to load</div>;
   if (!data) return <Loading />;
   return (
-    <Container maxWidth="xl" sx={{ paddingTop: '50px' }}>
+    <Container maxWidth={false} sx={{ maxWidth: '1840px', paddingTop: '50px' }}>
       <Box sx={{ my: 4 }}>
         <Podium title={`${id} Standings`} rows={data.data} />
         <StandingsTable rows={data} />

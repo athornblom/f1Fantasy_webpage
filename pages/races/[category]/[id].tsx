@@ -21,7 +21,7 @@ const Race: NextPage = () => {
   if (!data) return <Loading></Loading>;
 
   return (
-    <Container maxWidth={false} sx={{ paddingTop: '50px' }}>
+    <Container maxWidth={false} sx={{ maxWidth: '1540px', paddingTop: '50px' }}>
       <Box sx={{ my: 4 }}>
         <Podium
           title={`${
