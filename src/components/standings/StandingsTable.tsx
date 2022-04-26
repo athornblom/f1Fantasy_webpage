@@ -26,10 +26,16 @@ function filterTableRows(rows: any) {
 }
 
 function descendingComparator(a: any, b: any, orderBy: any) {
-  if (parseInt(b[orderBy]) < parseInt(a[orderBy])) {
+  if (
+    parseFloat(b[orderBy].replace(/[^\d,-]/g, '')) <
+    parseFloat(a[orderBy].replace(/[^\d,-]/g, ''))
+  ) {
     return -1;
   }
-  if (parseInt(b[orderBy]) > parseInt(a[orderBy])) {
+  if (
+    parseFloat(b[orderBy].replace(/[^\d,-]/g, '')) >
+    parseFloat(a[orderBy].replace(/[^\d,-]/g, ''))
+  ) {
     return 1;
   }
   return 0;
