@@ -176,7 +176,6 @@ function StandingsTable({ rows }: any) {
                           }}
                           key={row[e] + Math.random()}
                         >
-                          {console.log(row)}
                           {row[e]}
                         </TableCell>
                       ))}
