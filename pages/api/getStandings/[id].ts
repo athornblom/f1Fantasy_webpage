@@ -25,14 +25,11 @@ export default async function handler(req: any, res: any) {
   data.slice(1).forEach((row: any) => {
     rows.push(createData(row));
   });
-  data = rows.sort((a:any, b:any) => {
-    if(parseFloat(a[2]) > parseFloat(b[2]))
-        return 1
-    else if (parseFloat(a[2]) < parseFloat(b[2]))
-        return -1
-    else
-        return 0}
-    )
+  data = rows.sort((a: any, b: any) => {
+    if (parseFloat(a.totPoints) > parseFloat(b.totPoints)) return 1;
+    else if (parseFloat(a.totPoints) < parseFloat(b.totPoints)) return -1;
+    else return 0;
+  });
 
   res.status(200).json({ header: header, data: data });
   //    console.log(posts);

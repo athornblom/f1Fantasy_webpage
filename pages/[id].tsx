@@ -23,7 +23,6 @@ const Stanadings: NextPage = () => {
       <Box sx={{ my: 4 }}>
         <Podium title={`${id} Standings`} rows={data.data} />
         <StandingsTable rows={data} />
-        {console.log(data)}
       </Box>
     </Container>
   );
