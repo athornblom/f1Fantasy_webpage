@@ -26,16 +26,22 @@ function filterTableRows(rows: any) {
 }
 
 function descendingComparator(a: any, b: any, orderBy: any) {
-  if (
-    parseFloat(b[orderBy].replace(/[^\d,-]/g, '')) <
-    parseFloat(a[orderBy].replace(/[^\d,-]/g, ''))
-  ) {
+  const x = parseFloat(
+    a[orderBy]
+      .replace(',', '.')
+      .replace('−', '-')
+      .replace(/[^\d.-]/g, '')
+  );
+  const y = parseFloat(
+    b[orderBy]
+      .replace(',', '.')
+      .replace('−', '-')
+      .replace(/[^\d.-]/g, '')
+  );
+  if (y < x) {
     return -1;
   }
-  if (
-    parseFloat(b[orderBy].replace(/[^\d,-]/g, '')) >
-    parseFloat(a[orderBy].replace(/[^\d,-]/g, ''))
-  ) {
+  if (y > x) {
     return 1;
   }
   return 0;
@@ -170,6 +176,7 @@ function StandingsTable({ rows }: any) {
                           }}
                           key={row[e] + Math.random()}
                         >
+                          {console.log(row)}
                           {row[e]}
                         </TableCell>
                       ))}
