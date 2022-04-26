@@ -19,13 +19,23 @@ export default async function handler(req: any, res: any) {
     data = response.data.values;
   } catch (error) {}
 
+
+  
+
   //    result
   const header = createHeader(data[0]);
   let rows: any = [];
   data.slice(1).forEach((row: any) => {
     rows.push(createData(row));
   });
-  data = rows;
+  data = rows.sort((a:any, b:any) => {
+    if(parseFloat(a[5]) > parseFloat(b[5]))
+        return 1
+    else if (parseFloat(a[5]) < parseFloat(b[5]))
+        return -1
+    else
+        return 0}
+    )
 
   res.status(200).json({ header: header, data: data });
   //    console.log(posts);
