@@ -7,16 +7,32 @@ import { CacheProvider, EmotionCache } from '@emotion/react';
 import { darkTheme } from '../src/theme';
 import createEmotionCache from '../src/createEmotionCache';
 import Layout from '../src/components/Layout';
+import { sheetQuery } from '../src/utils/sheetQuery';
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
 
 interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;
+  data?: any;
+}
+export async function getServerSideProps() {
+  const data = await sheetQuery('admin', 'A3:Z24');
+  return {
+    notFound: data.length == 0 ? true : false,
+    props: {
+      data,
+    },
+  };
 }
 
 export default function MyApp(props: MyAppProps) {
-  const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+  const {
+    Component,
+    emotionCache = clientSideEmotionCache,
+    pageProps,
+    data,
+  } = props;
   return (
     <CacheProvider value={emotionCache}>
       <Head>
@@ -25,7 +41,7 @@ export default function MyApp(props: MyAppProps) {
       <ThemeProvider theme={darkTheme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
-        <Layout>
+        <Layout raceLinks={data}>
           <Component {...pageProps} />
         </Layout>
       </ThemeProvider>

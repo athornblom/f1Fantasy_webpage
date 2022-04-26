@@ -10,8 +10,7 @@ import Loading from './Loading';
 // @ts-ignore
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
-function Layout({ children }: any) {
-  const { data, error } = useSWR('/api/getRows/admin!A3:Z24', fetcher);
+function Layout({ children, raceLinks }: any) {
   const [showDrawer, setDrawerState] = React.useState(false);
 
   const toggleDrawer = (open: any) => (event: any) => {
@@ -25,18 +24,14 @@ function Layout({ children }: any) {
 
     setDrawerState(open);
   };
-  if (error) return <div>Failed to load</div>;
-  if (!data)
-    return (
-      <>
-        <Nav toggleDrawer={toggleDrawer} />
-        <Loading></Loading>
-      </>
-    );
   return (
     <>
       <Nav toggleDrawer={toggleDrawer} />
-      <Drawer data={data} showDrawer={showDrawer} toggleDrawer={toggleDrawer} />
+      <Drawer
+        data={raceLinks}
+        showDrawer={showDrawer}
+        toggleDrawer={toggleDrawer}
+      />
       <main>{children}</main>
       <Copyright />
     </>
