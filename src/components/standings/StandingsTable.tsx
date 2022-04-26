@@ -26,6 +26,7 @@ function filterTableRows(rows: any) {
 }
 
 function descendingComparator(a: any, b: any, orderBy: any) {
+  if (!a[orderBy] || !b[orderBy]) return 0;
   const x = parseFloat(
     a[orderBy]
       .replace(',', '.')
