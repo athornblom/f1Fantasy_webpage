@@ -26,8 +26,8 @@ export default async function handler(req: any, res: any) {
     rows.push(createData(row));
   });
   data = rows.sort((a: any, b: any) => {
-    if (parseFloat(a.points) > parseFloat(b.points)) return 1;
-    else if (parseFloat(a.points) < parseFloat(b.points)) return -1;
+    if (parseFloat(a.points) > parseFloat(b.points)) return -1;
+    else if (parseFloat(a.points) < parseFloat(b.points)) return 1;
     else return 0;
   });
 
