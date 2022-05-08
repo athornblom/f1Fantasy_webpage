@@ -6,20 +6,11 @@ import Drawer from './Drawer';
 import useSWR from 'swr';
 import Copyright from '../Copyright';
 import Loading from './Loading';
-import { sheetQuery } from '../utils/sheetQuery';
 
-export async function getServerSideProps() {
-  const data = await sheetQuery('admin', 'A3:Z24');
-  console.log(data);
-  return {
-    notFound: data.length == 0 ? true : false,
-    props: {
-      data,
-    },
-  };
-}
+// @ts-ignore
+const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
-function Layout({ children, data }: any) {
+function Layout({ children, raceLinks }: any) {
   const [showDrawer, setDrawerState] = React.useState(false);
 
   const toggleDrawer = (open: any) => (event: any) => {
@@ -36,7 +27,11 @@ function Layout({ children, data }: any) {
   return (
     <>
       <Nav toggleDrawer={toggleDrawer} />
-      <Drawer data={data} showDrawer={showDrawer} toggleDrawer={toggleDrawer} />
+      <Drawer
+        data={raceLinks}
+        showDrawer={showDrawer}
+        toggleDrawer={toggleDrawer}
+      />
       <main>{children}</main>
       <Copyright />
     </>

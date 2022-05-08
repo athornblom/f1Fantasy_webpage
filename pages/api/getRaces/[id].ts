@@ -126,7 +126,7 @@ function createHeader(head: any) {
       disablePadding: false,
       label: head[10],
       showOnMobile: false,
-      showByDefault: true,
+      showByDefault: false,
     },
     {
       id: 'MegaDriver',
@@ -134,7 +134,7 @@ function createHeader(head: any) {
       disablePadding: false,
       label: head[11],
       showOnMobile: false,
-      showByDefault: true,
+      showByDefault: false,
     },
     {
       id: 'Value',
