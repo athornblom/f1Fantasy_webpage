@@ -62,7 +62,7 @@ export default Drawer;
 
 function Row(props: any) {
   const { racesLink, races } = props;
-
+  const [raceLinks, setRaceLink] = React.useState(racesLink);
   const [open, setOpen] = React.useState(true);
   return (
     <>
@@ -74,10 +74,10 @@ function Row(props: any) {
       </ListItem>
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List>
-          <ListItemButton key={racesLink[0]}>
+          <ListItemButton key={raceLinks[0]}>
             <Link
               sx={{ textDecoration: 'none', color: 'inherit' }}
-              href={`/${racesLink[0]}`}
+              href={`/${raceLinks[0]}`}
             >
               <ListItemText primary={'Standings'} />
             </Link>
@@ -86,7 +86,7 @@ function Row(props: any) {
             <ListItemButton key={text}>
               <Link
                 sx={{ textDecoration: 'none', color: 'inherit' }}
-                href={`/races/${racesLink[index + 1]}`}
+                href={`/races/${raceLinks[index + 1]}`}
               >
                 <ListItemText primary={text} />
               </Link>
