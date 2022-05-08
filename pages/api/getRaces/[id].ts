@@ -122,7 +122,7 @@ function createHeader(head: any) {
     },
     {
       id: 'MD',
-      numeric: true,
+      numeric: false,
       disablePadding: false,
       label: head[10],
       showOnMobile: false,
