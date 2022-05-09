@@ -21,7 +21,7 @@ const Stanadings: NextPage = () => {
   return (
     <Container maxWidth={false} sx={{ maxWidth: '1840px', paddingTop: '50px' }}>
       <Box sx={{ my: 4 }}>
-        <Podium title={`${id} Standings`} rows={data.data} />
+        <Podium title={`${id} Season`} rows={data.data} />
         <StandingsTable rows={data} />
       </Box>
     </Container>
