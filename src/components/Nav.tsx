@@ -13,7 +13,6 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
 export default function Nav({ toggleDrawer }: any) {
-  const [color, setColor] = useState('dark');
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="fixed" enableColorOnDark>
@@ -39,8 +38,12 @@ export default function Nav({ toggleDrawer }: any) {
               alt="f1 logo"
             />
           </Typography> */}
-          <Link href="/">
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Link href="/2022">
+            <Typography
+              variant="h6"
+              component="div"
+              sx={{ flexGrow: 1, cursor: 'pointer' }}
+            >
               KOLV CUPEN by LIFE ENERGY
             </Typography>
           </Link>
