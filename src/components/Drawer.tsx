@@ -8,10 +8,11 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
-import { Collapse, IconButton, Link } from '@mui/material';
+import { Collapse, IconButton } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { ListItemButton } from '@mui/material';
+import Link from 'next/link';
 
 const header = (data: any) => {
   let emptyArray: any = [];
@@ -75,19 +76,13 @@ function Row(props: any) {
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List>
           <ListItemButton key={raceLinks[0]}>
-            <Link
-              sx={{ textDecoration: 'none', color: 'inherit' }}
-              href={`/${raceLinks[0]}`}
-            >
+            <Link href={`/${raceLinks[0]}`}>
               <ListItemText primary={'Season'} />
             </Link>
           </ListItemButton>
           {races.slice(1).map((text: any, index: any) => (
             <ListItemButton key={text}>
-              <Link
-                sx={{ textDecoration: 'none', color: 'inherit' }}
-                href={`/races/${raceLinks[index + 1]}`}
-              >
+              <Link href={`/races/${raceLinks[index + 1]}`}>
                 <ListItemText primary={text} />
               </Link>
             </ListItemButton>

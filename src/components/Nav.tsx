@@ -7,6 +7,7 @@ import IconButton from '@mui/material/IconButton';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import MenuIcon from '@mui/icons-material/Menu';
+import Link from 'next/link';
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
@@ -38,9 +39,11 @@ export default function Nav({ toggleDrawer }: any) {
               alt="f1 logo"
             />
           </Typography> */}
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            KOLV CUPEN by LIFE ENERGY
-          </Typography>
+          <Link href="/">
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+              KOLV CUPEN by LIFE ENERGY
+            </Typography>
+          </Link>
           {/* <IconButton color="inherit" onClick={() => {}}>
             {color == 'light' ? <Brightness7Icon /> : <Brightness4Icon />}
           </IconButton> */}
