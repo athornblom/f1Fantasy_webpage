@@ -79,7 +79,7 @@ function Row(props: any) {
               sx={{ textDecoration: 'none', color: 'inherit' }}
               href={`/${raceLinks[0]}`}
             >
-              <ListItemText primary={'Standings'} />
+              <ListItemText primary={'Season'} />
             </Link>
           </ListItemButton>
           {races.slice(1).map((text: any, index: any) => (
